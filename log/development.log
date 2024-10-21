@@ -180,3 +180,935 @@ Started POST "/prices" for ::1 at 2024-10-21 23:09:43 +0700
   
 ActionController::RoutingError (No route matches [POST] "/prices"):
   
+Started POST "/prices" for ::1 at 2024-10-22 01:35:47 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/prices"):
+  
+Started POST "/transactions" for ::1 at 2024-10-22 01:35:55 +0700
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>1000.0, "transaction_type"=>"credit", "target_wallet_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/transaction.rb:13:in `validate_wallets'
+  [1m[36mTransaction Create (1.3ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 1000.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-21 18:35:55.780059"], ["updated_at", "2024-10-21 18:35:55.780059"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mWallet Update (1.7ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1100.0], ["updated_at", "2024-10-21 18:35:55.816250"], ["id", 1]]
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:14:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:15:in `calculate_balance'
+Completed 201 Created in 86ms (Views: 0.6ms | ActiveRecord: 14.7ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:42:36 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:43:10 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:43:12 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:43:14 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:43:16 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:44:36 +0700
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:17:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:45:12 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:46:39 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 01:46:41 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:09:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:09:03 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:09:04 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:09:08 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:09:09 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:09:12 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:09:23 +0700
+  
+ActionController::RoutingError (uninitialized constant WalletsController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant WalletsController)
+NameError (uninitialized constant WalletsController)
+  
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:10:26 +0700
+Processing by WalletsController#balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (1.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `balance'
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 6.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `transactions' for #<Wallet id: 1, balance: 0.11e4, walletable_type: "User", walletable_id: 1, created_at: "2024-10-21 09:53:36.804604000 +0000", updated_at: "2024-10-21 18:35:55.816250000 +0000">):
+  
+app/models/wallet.rb:14:in `calculate_balance'
+app/controllers/wallets_controller.rb:4:in `balance'
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:13:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (1.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `balance'
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 72ms (Views: 0.3ms | ActiveRecord: 3.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:14:32 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WalletsController#balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `balance'
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 60ms (Views: 0.4ms | ActiveRecord: 2.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:17:23 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.4ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 43ms (Views: 0.5ms | ActiveRecord: 3.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2024-10-22 02:20:56 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Fajar Dwi Rianto"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Fajar Dwi Rianto"], ["created_at", "2024-10-21 19:20:56.245133"], ["updated_at", "2024-10-21 19:20:56.245133"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mWallet Create (0.4ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 2], ["created_at", "2024-10-21 19:20:56.283525"], ["updated_at", "2024-10-21 19:20:56.283525"]]
+  ↳ app/models/user.rb:9:in `create_wallet'
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 2], ["walletable_type", "User"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `create_wallet'
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 78ms (Views: 1.0ms | ActiveRecord: 13.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:21:28 +0700
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>500.0, "transaction_type"=>"debut", "source_wallet_id"=>1}}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.5ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError ('debut' is not a valid transaction_type):
+  
+app/controllers/transactions_controller.rb:3:in `create'
+Started POST "/transactions" for ::1 at 2024-10-22 02:21:34 +0700
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>500.0, "transaction_type"=>"debit", "source_wallet_id"=>1}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:21:48 +0700
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>500.0, "transaction_type"=>"debit", "source_wallet_id"=>1}}
+Completed 422 Unprocessable Content in 5ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:21:52 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.3ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.3ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:21:59 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:22:32 +0700
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>500.0, "transaction_type"=>"credit", "target_wallet_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTransaction Create (2.1ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 500.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-21 19:22:32.056500"], ["updated_at", "2024-10-21 19:22:32.056500"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mWallet Update (4.1ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1600.0], ["updated_at", "2024-10-21 19:22:32.066115"], ["id", 1]]
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 201 Created in 28ms (Views: 0.3ms | ActiveRecord: 7.1ms (5 queries, 0 cached) | GC: 6.8ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:22:40 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 61ms (Views: 0.2ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 53.8ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:22:54 +0700
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>500.0, "transaction_type"=>"debit", "source_wallet_id"=>1}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:24:36 +0700
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>200.0, "transaction_type"=>"debit", "source_wallet_id"=>1, "target_wallet_id"=>2}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mWallet Load (2.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 200.0], ["transaction_type", 1], ["source_wallet_id", 1], ["target_wallet_id", 2], ["created_at", "2024-10-21 19:24:36.646979"], ["updated_at", "2024-10-21 19:24:36.646979"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.9ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
+  
+NoMethodError (undefined method `deibt?' for #<Transaction id: 4, amount: 0.2e3, transaction_type: "debit", source_wallet_id: 1, target_wallet_id: 2, created_at: "2024-10-21 19:24:36.646979000 +0000", updated_at: "2024-10-21 19:24:36.646979000 +0000">):
+  
+app/controllers/transactions_controller.rb:8:in `create'
+Started POST "/transactions" for ::1 at 2024-10-22 02:25:05 +0700
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>200.0, "transaction_type"=>"debit", "source_wallet_id"=>1, "target_wallet_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mTransaction Create (0.2ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 200.0], ["transaction_type", 1], ["source_wallet_id", 1], ["target_wallet_id", 2], ["created_at", "2024-10-21 19:25:05.372341"], ["updated_at", "2024-10-21 19:25:05.372341"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mWallet Update (1.6ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1400.0], ["updated_at", "2024-10-21 19:25:05.384576"], ["id", 1]]
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTransaction Sum (0.3ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.4ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mWallet Update (1.9ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1200.0], ["updated_at", "2024-10-21 19:25:05.397810"], ["id", 1]]
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mWallet Update (3.0ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 400.0], ["updated_at", "2024-10-21 19:25:05.407981"], ["id", 2]]
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+Completed 201 Created in 72ms (Views: 0.4ms | ActiveRecord: 17.6ms (10 queries, 0 cached) | GC: 9.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:25:19 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:25:32 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:25:47 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:25:56 +0700
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>100.0, "transaction_type"=>"debit", "source_wallet_id"=>1, "target_wallet_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mWallet Load (1.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 100.0], ["transaction_type", 1], ["source_wallet_id", 1], ["target_wallet_id", 2], ["created_at", "2024-10-21 19:25:56.363090"], ["updated_at", "2024-10-21 19:25:56.363090"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mWallet Update (2.0ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1100.0], ["updated_at", "2024-10-21 19:25:56.371090"], ["id", 1]]
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mWallet Update (1.6ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 500.0], ["updated_at", "2024-10-21 19:25:56.386226"], ["id", 2]]
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+Completed 201 Created in 34ms (Views: 0.4ms | ActiveRecord: 7.0ms (9 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:26:00 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:27:26 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.9ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.3ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 21ms (Views: 0.8ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+  [1m[36mWallet Load (1.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" ORDER BY "wallets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/transactions" for ::1 at 2024-10-22 02:46:11 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>200.0, "transaction_type"=>"debit", "source_wallet_id"=>2, "target_wallet_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/transaction.rb:15:in `validate_wallets'
+  [1m[36mTransaction Create (0.7ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 200.0], ["transaction_type", 1], ["source_wallet_id", 2], ["target_wallet_id", 1], ["created_at", "2024-10-21 19:46:11.418261"], ["updated_at", "2024-10-21 19:46:11.418261"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mWallet Update (2.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 300.0], ["updated_at", "2024-10-21 19:46:11.435000"], ["id", 2]]
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mWallet Update (2.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1300.0], ["updated_at", "2024-10-21 19:46:11.452001"], ["id", 1]]
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:21:in `calculate_balance'
+Completed 201 Created in 86ms (Views: 0.7ms | ActiveRecord: 18.4ms (9 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:46:20 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:46:25 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/1/balance" for ::1 at 2024-10-22 02:46:46 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/transactions" for ::1 at 2024-10-22 02:51:27 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :transaction_type, {:credit=>0, :debit=>1}
+ (called from <class:Transaction> at /home/fajarpostman/SystemWallet/app/models/transaction.rb:5)
+Processing by TransactionsController#create as */*
+  Parameters: {"transaction"=>{"amount"=>1150.0, "transaction_type"=>"credit", "target_wallet_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/transaction.rb:13:in `validate_wallets'
+  [1m[36mTransaction Create (0.6ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 1150.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 2], ["created_at", "2024-10-21 19:51:27.753223"], ["updated_at", "2024-10-21 19:51:27.753223"]]
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/transactions_controller.rb:5:in `create'
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mWallet Update (1.9ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 1450.0], ["updated_at", "2024-10-21 19:51:27.787524"], ["id", 2]]
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/wallet.rb:10:in `update_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 201 Created in 90ms (Views: 0.7ms | ActiveRecord: 14.6ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/wallets/2/balance" for ::1 at 2024-10-22 02:51:36 +0700
+Processing by WalletsController#show_balance as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/wallets_controller.rb:3:in `show_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  ↳ app/models/wallet.rb:18:in `calculate_balance'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  ↳ app/models/wallet.rb:19:in `calculate_balance'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbol=AAP" for ::1 at 2024-10-22 03:03:35 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"AAP"}
+Completed 200 OK in 1396ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbol=AAP" for ::1 at 2024-10-22 03:04:33 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"AAP"}
+Completed 200 OK in 1546ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/any%20?symbol=AAP" for ::1 at 2024-10-22 03:05:02 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/stock_prices/any%20"):
+  
+Started GET "/stock_prices/price?symbol=" for ::1 at 2024-10-22 03:05:16 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>""}
+Completed 200 OK in 362ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbol=" for ::1 at 2024-10-22 03:06:20 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>""}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.8ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): "/equities "):
+  
+lib/latest_stock_price.rb:8:in `price'
+app/controllers/stock_prices_controller.rb:4:in `price'
+Started GET "/stock_prices/price?symbol=" for ::1 at 2024-10-22 03:07:21 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/stock_prices/price"):
+  
+Started GET "/stock_prices/equities?symbol=" for ::1 at 2024-10-22 03:07:31 +0700
+  
+AbstractController::ActionNotFound (The action 'equities' could not be found for StockPricesController):
+  
+actionpack (7.2.1.1) lib/abstract_controller/base.rb:158:in `process'
+actionpack (7.2.1.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.1.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.1.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.1.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.1.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.1.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.1.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.1.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.1.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.1.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+activerecord (7.2.1.1) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.1.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.1.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.2.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.2.1.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.1.1) lib/rails/engine.rb:535:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/stock_prices/equities?symbol=" for ::1 at 2024-10-22 03:07:54 +0700
+Processing by StockPricesController#equities as */*
+  Parameters: {"symbol"=>""}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `price' for LatestStockPrice:Class):
+  
+app/controllers/stock_prices_controller.rb:4:in `equities'
+Started GET "/stock_prices/equities" for ::1 at 2024-10-22 03:11:35 +0700
+Processing by StockPricesController#equities as */*
+Completed 200 OK in 1019ms (Views: 52.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 27.0ms)
+
+
+Started GET "/stock_prices/equitiesSearch?symbol=ZOMA.NS" for ::1 at 2024-10-22 03:16:21 +0700
+Processing by StockPricesController#equitiesSearch as */*
+  Parameters: {"symbol"=>"ZOMA.NS"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): "/equities-search "):
+  
+lib/latest_stock_price.rb:8:in `equitiesSearch'
+app/controllers/stock_prices_controller.rb:4:in `equitiesSearch'
+Started GET "/equities-search" for ::1 at 2024-10-22 03:16:29 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/equities-search"):
+  
+Started GET "/stock_prices/equities-search?symbol=ZOMA.NS" for ::1 at 2024-10-22 03:17:26 +0700
+Processing by StockPricesController#equitiesSearch as */*
+  Parameters: {"symbol"=>"ZOMA.NS"}
+Completed 500 Internal Server Error in 706ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+  
+NoMethodError (undefined method `search' for #<StockPricesController:0x00000000027fd8>):
+  
+app/controllers/stock_prices_controller.rb:4:in `equitiesSearch'
+Started GET "/stock_prices/equitiesSearch?symbol=ZOMA.NS" for ::1 at 2024-10-22 03:17:30 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/stock_prices/equitiesSearch"):
+  
+Started GET "/stock_prices/price_all" for ::1 at 2024-10-22 03:20:14 +0700
+Processing by StockPricesController#price_all as */*
+Completed 200 OK in 1038ms (Views: 37.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/stock_prices/price?symbol=ZOMA.NS" for ::1 at 2024-10-22 03:21:26 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"ZOMA.NS"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): "/equities-search "):
+  
+lib/latest_stock_price.rb:8:in `price'
+app/controllers/stock_prices_controller.rb:5:in `price'
+Started GET "/stock_prices/price?symbol=ZOMA.NS" for ::1 at 2024-10-22 03:21:57 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"ZOMA.NS"}
+Completed 200 OK in 2358ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/stock_prices/price?symbol=ZOMA.NS" for ::1 at 2024-10-22 03:22:13 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"ZOMA.NS"}
+Completed 200 OK in 344ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/stock_prices/price?symbol=ZOMA.NS,TATADVRA.NS" for ::1 at 2024-10-22 03:22:32 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"ZOMA.NS,TATADVRA.NS"}
+Completed 200 OK in 643ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbols=ZOMA.NS,TATADVRA.NS" for ::1 at 2024-10-22 03:22:39 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbols"=>"ZOMA.NS,TATADVRA.NS"}
+Completed 200 OK in 467ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbol=AAPL" for ::1 at 2024-10-22 03:23:30 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"AAPL"}
+Completed 200 OK in 669ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbol=LTIM.NS" for ::1 at 2024-10-22 03:23:46 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbol"=>"LTIM.NS"}
+Completed 200 OK in 433ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?search=LTIM.NS" for ::1 at 2024-10-22 03:25:16 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"search"=>"LTIM.NS"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `search' for #<StockPricesController:0x0000000003db80>):
+  
+app/controllers/stock_prices_controller.rb:5:in `price'
+Started GET "/stock_prices/price?search=LTIM.NS" for ::1 at 2024-10-22 03:26:05 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"search"=>"LTIM.NS"}
+Completed 200 OK in 633ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?search=LTIM.NS" for ::1 at 2024-10-22 03:26:40 +0700
+  
+SyntaxError (/home/fajarpostman/SystemWallet/app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+        Search = params[:Search]
+        ^~~~~~
+):
+  
+app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+Started GET "/stock_prices/price?Search=LTIM.NS" for ::1 at 2024-10-22 03:26:43 +0700
+  
+SyntaxError (/home/fajarpostman/SystemWallet/app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+        Search = params[:Search]
+        ^~~~~~
+):
+  
+app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+Started GET "/stock_prices/price?Search=LTIM.NS" for ::1 at 2024-10-22 03:26:48 +0700
+  
+SyntaxError (/home/fajarpostman/SystemWallet/app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+        Search = params[:Search]
+        ^~~~~~
+):
+  
+app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+Started GET "/stock_prices/price?Search=LTIM.NS" for ::1 at 2024-10-22 03:27:02 +0700
+  
+SyntaxError (/home/fajarpostman/SystemWallet/app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+        Search = params[:Search]
+        ^~~~~~
+):
+  
+app/controllers/stock_prices_controller.rb:4: dynamic constant assignment
+Started GET "/stock_prices/price?Search=LTIM.NS" for ::1 at 2024-10-22 03:29:56 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"Search"=>"LTIM.NS"}
+Completed 200 OK in 697ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?search=LTIM.NS" for ::1 at 2024-10-22 03:30:02 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"search"=>"LTIM.NS"}
+Completed 200 OK in 1276ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?search=LTIM.NS" for ::1 at 2024-10-22 03:33:19 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"search"=>"LTIM.NS"}
+Completed 200 OK in 460ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbols=LTIM.NS%2CICICLOMB.NS" for ::1 at 2024-10-22 03:35:25 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 200 OK in 799ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/stock_prices/price?symbols=LTIM.NS,ICICLOMB.NS" for ::1 at 2024-10-22 03:35:47 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 200 OK in 431ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/stock_prices/price?symbols=LTIM.NS,ICICLOMB.NS" for ::1 at 2024-10-22 03:37:23 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 200 OK in 713ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/stock_prices/price?symbols=LTIM.NS,ICICLOMB.NS" for ::1 at 2024-10-22 03:38:27 +0700
+Processing by StockPricesController#price as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 200 OK in 417ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/stock_prices/prices?symbols=LTIM.NS,ICICLOMB.NS" for ::1 at 2024-10-22 03:38:49 +0700
+Processing by StockPricesController#prices as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 200 OK in 4048ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/stock_prices/prices?symbols=LTIM.NS,ICICLOMB.NS" for ::1 at 2024-10-22 03:40:22 +0700
+Processing by StockPricesController#prices as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+SyntaxError (/home/fajarpostman/SystemWallet/lib/latest_stock_price.rb:25: syntax error, unexpected end-of-input):
+  
+lib/latest_stock_price.rb:25: syntax error, unexpected end-of-input
+app/controllers/stock_prices_controller.rb:11:in `prices'
+Started GET "/stock_prices/prices?symbols=LTIM.NS,ICICLOMB.NS" for ::1 at 2024-10-22 03:40:46 +0700
+Processing by StockPricesController#prices as */*
+  Parameters: {"symbols"=>"LTIM.NS,ICICLOMB.NS"}
+Completed 200 OK in 488ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/stocks" for ::1 at 2024-10-22 03:41:33 +0700
+Processing by StocksController#create as */*
+  Parameters: {"stock"=>{"name"=>"Microsoft"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/stocks_controller.rb:5:in `create'
+  [1m[36mStock Create (10.3ms)[0m  [1m[32mINSERT INTO "stocks" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Microsoft"], ["created_at", "2024-10-21 20:41:33.343969"], ["updated_at", "2024-10-21 20:41:33.343969"]]
+  ↳ app/controllers/stocks_controller.rb:5:in `create'
+  [1m[36mWallet Create (0.5ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "Stock"], ["walletable_id", 2], ["created_at", "2024-10-21 20:41:33.441127"], ["updated_at", "2024-10-21 20:41:33.441127"]]
+  ↳ app/models/stock.rb:9:in `create_wallet'
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 2], ["walletable_type", "Stock"], ["LIMIT", 1]]
+  ↳ app/models/stock.rb:9:in `create_wallet'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/stocks_controller.rb:5:in `create'
+Completed 201 Created in 170ms (Views: 1.1ms | ActiveRecord: 40.1ms (3 queries, 0 cached) | GC: 0.6ms)
+
+

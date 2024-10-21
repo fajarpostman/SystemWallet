@@ -11,7 +11,15 @@ Rails.application.routes.draw do
     
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
+  get 'stock_prices/price', to: 'stock_prices#price'
+  get 'stock_prices/prices', to: 'stock_prices#prices'
+  get 'stock_prices/price_all', to: 'stock_prices#price_all'
+
+  resources :wallets, only: [] do
+    member do
+      get :balance, to: 'wallets#show_balance', as: 'balance'
+    end
+  end
   # Defines the root path route ("/")
   # root "posts#index"
 end

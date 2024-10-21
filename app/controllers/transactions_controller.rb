@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
         if transaction.save
             if transaction.credit?
                 transaction.target_wallet.update_balance(transaction.amount)
-            elsif transaction.deibt?
+            elsif transaction.debit?
                 transaction.source_wallet.update_balance(-transaction.amount)
             end
 
@@ -24,3 +24,4 @@ class TransactionsController < ApplicationController
         params.require(:transaction).permit(:amount, :transaction_type, :source_wallet_id, :target_wallet_id)
     end
 end
+  

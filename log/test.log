@@ -1268,3 +1268,490 @@ Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.9ms (2 queries, 0 c
   [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:42:04 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200", "transaction_type"=>"debit", "source_wallet_id"=>nil, "target_wallet_id"=>nil}}
+Completed 422 Unprocessable Content in 14ms (Views: 0.3ms | ActiveRecord: 0.3ms (0 queries, 0 cached) | GC: 0.8ms)
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:42:04 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200", "transaction_type"=>"debit", "source_wallet_id"=>nil, "target_wallet_id"=>nil}}
+Completed 422 Unprocessable Content in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:42:04 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300", "transaction_type"=>"credit", "target_wallet_id"=>nil}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (2.3ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", nil], ["created_at", "2024-10-23 04:42:04.906963"], ["updated_at", "2024-10-23 04:42:04.906963"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:42:04 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300", "transaction_type"=>"credit", "target_wallet_id"=>nil, "source_wallet_id"=>nil}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.4ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", nil], ["created_at", "2024-10-23 04:42:04.917029"], ["updated_at", "2024-10-23 04:42:04.917029"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:44:55 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200", "transaction_type"=>"debit", "source_wallet_id"=>nil, "target_wallet_id"=>nil}}
+Completed 422 Unprocessable Content in 17ms (Views: 0.3ms | ActiveRecord: 0.3ms (0 queries, 0 cached) | GC: 1.0ms)
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:44:55 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300", "transaction_type"=>"credit", "target_wallet_id"=>nil}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.7ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", nil], ["created_at", "2024-10-23 04:44:55.464249"], ["updated_at", "2024-10-23 04:44:55.464249"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.5ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:46:42 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200", "transaction_type"=>"debit", "source_wallet_id"=>"2", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 64ms (Views: 0.4ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 19.6ms)
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:46:42 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (1.4ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 04:46:42.720077"], ["updated_at", "2024-10-23 04:46:42.720077"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:47:01 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200", "transaction_type"=>"debit", "source_wallet_id"=>"2", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 24ms (Views: 0.4ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTransaction Count (15.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 11:47:01 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (1.2ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 04:47:01.330407"], ["updated_at", "2024-10-23 04:47:01.330407"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:02:55 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 23ms (Views: 0.5ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.9ms)
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:02:55 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.9ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:02:55.829571"], ["updated_at", "2024-10-23 05:02:55.829571"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.5ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:08:05 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 23ms (Views: 0.4ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 1.7ms)
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:08:05 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (1.8ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:08:05.201636"], ["updated_at", "2024-10-23 05:08:05.201636"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:09:47 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 24ms (Views: 0.5ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 1.3ms)
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:09:47 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.9ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:09:47.362680"], ["updated_at", "2024-10-23 05:09:47.362680"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:10:58 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 31ms (Views: 0.8ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 1.5ms)
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:10:58 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.8ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:10:58.518122"], ["updated_at", "2024-10-23 05:10:58.518122"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:11:05 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.7ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 24ms (Views: 0.4ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 1.2ms)
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:11:05 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (1.0ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:11:05.554777"], ["updated_at", "2024-10-23 05:11:05.554777"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:13:33 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 22ms (Views: 0.5ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 1.3ms)
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:13:33 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1", "source_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", 2], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:13:33.530491"], ["updated_at", "2024-10-23 05:13:33.530491"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.4ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:15:42 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 21ms (Views: 0.3ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 1.4ms)
+  [1m[36mTransaction Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:15:42 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1", "source_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.9ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTransaction Create (0.8ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", 2], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:15:42.802267"], ["updated_at", "2024-10-23 05:15:42.802267"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.4ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:17:54 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"debit", "source_wallet_id"=>"1", "target_wallet_id"=>"2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (1.0ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Content in 25ms (Views: 0.3ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 1.2ms)
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTransaction Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "transactions"[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:17:54 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"300.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (1.1ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 300.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:17:54.936381"], ["updated_at", "2024-10-23 05:17:54.936381"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Max Verstappen"], ["created_at", "2024-10-23 05:20:05.530496"], ["updated_at", "2024-10-23 05:20:05.530496"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:20:05.559334"], ["updated_at", "2024-10-23 05:20:05.559334"]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:20:05 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.4ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 200.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:20:05.610748"], ["updated_at", "2024-10-23 05:20:05.610748"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 200.0], ["updated_at", "2024-10-23 05:20:05.614642"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 31ms (Views: 0.4ms | ActiveRecord: 1.9ms (5 queries, 0 cached) | GC: 1.4ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Max Verstappen"], ["created_at", "2024-10-23 05:20:22.504419"], ["updated_at", "2024-10-23 05:20:22.504419"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:20:22.521646"], ["updated_at", "2024-10-23 05:20:22.521646"]]
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:20:22 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"200.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 200.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:20:22.565666"], ["updated_at", "2024-10-23 05:20:22.565666"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.5ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 200.0], ["updated_at", "2024-10-23 05:20:22.570006"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 27ms (Views: 0.7ms | ActiveRecord: 2.1ms (5 queries, 0 cached) | GC: 1.4ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Max Verstappen"], ["created_at", "2024-10-23 05:20:44.218571"], ["updated_at", "2024-10-23 05:20:44.218571"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:20:44.237122"], ["updated_at", "2024-10-23 05:20:44.237122"]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:20:44 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"100.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.6ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 100.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:20:44.284489"], ["updated_at", "2024-10-23 05:20:44.284489"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 100.0], ["updated_at", "2024-10-23 05:20:44.289224"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 27ms (Views: 0.4ms | ActiveRecord: 2.0ms (5 queries, 0 cached) | GC: 1.6ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Max Verstappen"], ["created_at", "2024-10-23 05:21:37.410322"], ["updated_at", "2024-10-23 05:21:37.410322"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:21:37.425117"], ["updated_at", "2024-10-23 05:21:37.425117"]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:21:37 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"600.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 600.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:21:37.468376"], ["updated_at", "2024-10-23 05:21:37.468376"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 600.0], ["updated_at", "2024-10-23 05:21:37.472975"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 26ms (Views: 0.4ms | ActiveRecord: 2.0ms (5 queries, 0 cached) | GC: 1.4ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Fajar Dwi Rianto"], ["created_at", "2024-10-23 05:27:32.231613"], ["updated_at", "2024-10-23 05:27:32.231613"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:27:32.276820"], ["updated_at", "2024-10-23 05:27:32.276820"]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:27:32 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"600.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 600.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:27:32.317131"], ["updated_at", "2024-10-23 05:27:32.317131"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 600.0], ["updated_at", "2024-10-23 05:27:32.321179"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 31ms (Views: 0.5ms | ActiveRecord: 1.8ms (5 queries, 0 cached) | GC: 1.5ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Test User"], ["created_at", "2024-10-23 05:27:32.338444"], ["updated_at", "2024-10-23 05:27:32.338444"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:27:32.340808"], ["updated_at", "2024-10-23 05:27:32.340808"]]
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Create (0.8ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 500.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:27:32.343265"], ["updated_at", "2024-10-23 05:27:32.343265"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/wallets/2/balance" for 127.0.0.1 at 2024-10-23 12:27:32 +0700
+Processing by WalletsController#show_balance as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.6ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 0.0], ["updated_at", "2024-10-23 05:27:32.351938"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms (4 queries, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Fajar Dwi Rianto"], ["created_at", "2024-10-23 05:28:15.312853"], ["updated_at", "2024-10-23 05:28:15.312853"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:28:15.356168"], ["updated_at", "2024-10-23 05:28:15.356168"]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:28:15 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"600.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 600.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:28:15.395022"], ["updated_at", "2024-10-23 05:28:15.395022"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.3ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 600.0], ["updated_at", "2024-10-23 05:28:15.398460"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.2ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 31ms (Views: 0.4ms | ActiveRecord: 2.0ms (5 queries, 0 cached) | GC: 1.5ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Test User"], ["created_at", "2024-10-23 05:28:15.413608"], ["updated_at", "2024-10-23 05:28:15.413608"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:28:15.415643"], ["updated_at", "2024-10-23 05:28:15.415643"]]
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Create (0.4ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 500.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:28:15.418034"], ["updated_at", "2024-10-23 05:28:15.418034"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/wallets/2/balance" for 127.0.0.1 at 2024-10-23 12:28:15 +0700
+Processing by WalletsController#show_balance as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 2]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.4ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 0.0], ["updated_at", "2024-10-23 05:28:15.428929"], ["id", 2]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "Fajar Dwi Rianto"], ["created_at", "2024-10-23 05:28:31.811203"], ["updated_at", "2024-10-23 05:28:31.811203"]]
+  [1m[36mWallet Create (0.2ms)[0m  [1m[32mINSERT INTO "wallets" ("balance", "walletable_type", "walletable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["balance", 0.0], ["walletable_type", "User"], ["walletable_id", 1], ["created_at", "2024-10-23 05:28:31.827591"], ["updated_at", "2024-10-23 05:28:31.827591"]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."walletable_id" = ? AND "wallets"."walletable_type" = ? LIMIT ?[0m  [["walletable_id", 1], ["walletable_type", "User"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/transactions" for 127.0.0.1 at 2024-10-23 12:28:31 +0700
+Processing by TransactionsController#create as HTML
+  Parameters: {"transaction"=>{"amount"=>"600.0", "transaction_type"=>"credit", "target_wallet_id"=>"1"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTransaction Create (0.5ms)[0m  [1m[32mINSERT INTO "transactions" ("amount", "transaction_type", "source_wallet_id", "target_wallet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["amount", 600.0], ["transaction_type", 0], ["source_wallet_id", nil], ["target_wallet_id", 1], ["created_at", "2024-10-23 05:28:31.871181"], ["updated_at", "2024-10-23 05:28:31.871181"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets" WHERE "wallets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWallet Update (0.5ms)[0m  [1m[33mUPDATE "wallets" SET "balance" = ?, "updated_at" = ? WHERE "wallets"."id" = ?[0m  [["balance", 600.0], ["updated_at", "2024-10-23 05:28:31.875043"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."target_wallet_id" = ?[0m  [["target_wallet_id", 1]]
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."source_wallet_id" = ?[0m  [["source_wallet_id", 1]]
+Completed 201 Created in 24ms (Views: 0.4ms | ActiveRecord: 2.0ms (5 queries, 0 cached) | GC: 1.1ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

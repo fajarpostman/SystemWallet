@@ -9,6 +9,7 @@
 Postman FLow:
 
 Last Stock Price:
+
     PRICE ALL:
         METHOD GET: http://localhost:3000/stock_prices/price_all
     PRICE:
@@ -17,6 +18,7 @@ Last Stock Price:
         METHOD GET: http://localhost:3000/stock_prices/prices?symbols="SYMBOLS NAME"
 
 System Wallet:
+
     USERS: 
         METHOD: POST
         URL: http://localhost:3000/users

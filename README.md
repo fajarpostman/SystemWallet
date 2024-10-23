@@ -13,9 +13,9 @@ Last Stock Price:
     PRICE ALL:
         METHOD GET: http://localhost:3000/stock_prices/price_all
     PRICE:
-        METHOD GET: http://localhost:3000/stock_prices/price?search="SYMBOL NAME"
+        METHOD GET: http://localhost:3000/stock_prices/price?search="SYMBOL NAME" ex:ZOMA.NS
     PRICES:
-        METHOD GET: http://localhost:3000/stock_prices/prices?symbols="SYMBOLS NAME"
+        METHOD GET: http://localhost:3000/stock_prices/prices?symbols="SYMBOLS NAME" ex:LTIM.NS,ICICLOMB.NS
 
 System Wallet:
 

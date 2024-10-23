@@ -1,7 +1,9 @@
 # SystemWallet
 
 #1 You need run bundle install
+
 #2 rails db:migrate
+
 #3 rails server
 
 Postman FLow:

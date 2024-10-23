@@ -44,6 +44,11 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   gem 'rspec-rails'
+
+  gem 'bcrypt', '~> 3.1.7'
+
+  gem 'database_cleaner'
+
 end
 
 

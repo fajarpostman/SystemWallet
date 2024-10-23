@@ -5,7 +5,12 @@ class WalletsController < ApplicationController
 
     render json: {
       wallet_id: wallet.id,
-      balance: balance
+      balance: balance,
+      walletable: {
+        id: wallet.walletable_id,
+        name: wallet.walletable.name,
+        type: wallet.walletable_type
+      }
     }, status: :ok
   rescue ActiveRecord::RecordNotFound
     render json: { error: "Wallet not found" }, status: :not_found

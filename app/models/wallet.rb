@@ -10,10 +10,6 @@ class Wallet < ApplicationRecord
     save!
   end
 
-  # def calculate_balance
-  #   transactions.sum(:amount)
-  # end
-
   def calculate_balance
     total_income = target_transactions.sum(:amount)
     total_outgo = source_transactions.sum(:amount)
